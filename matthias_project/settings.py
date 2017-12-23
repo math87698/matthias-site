@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'websites',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +76,19 @@ WSGI_APPLICATION = 'matthias_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8akfqoccbiv07',
+        'USER': 'yvgswemfkmnixm',
+        'PASSWORD': '4206668ee6300450c858e5ab7ef32e2de799b315b787ae7fcd856a351a18e223',
+        'HOST': 'ec2-79-125-127-60.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
