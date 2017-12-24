@@ -1,1 +1,1 @@
-web: gunicorn matthias-site:app
+web: gunicorn matthias_project.wsgi
