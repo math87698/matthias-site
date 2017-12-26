@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from .models import Position
 
 
 def index(request):
-    return HttpResponse("Hello World, I'm Matthias")
+    position = get_object_or_404(Position)
+    context = {
+        'position': position
+    }
+    return render(request, 'base.html', context)
