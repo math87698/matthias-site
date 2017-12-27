@@ -10,4 +10,4 @@ def index(request):
     # context = {
     #     'position': position
     # }
-    return render(request, 'base.html', context)
+    return render(request, 'base.html')
