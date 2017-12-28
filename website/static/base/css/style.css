@@ -1,4 +1,15 @@
 /* custom color scheme */
-.navbar {
+.bg-red {
     background-color: #f77464;
+}
+
+.navbar {
+    min-height: 10em;
+    padding: 2em;
+}
+
+.portrait {
+    width: 40%;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
 }
