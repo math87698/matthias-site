@@ -33,30 +33,49 @@
 
 {% block body %}
 
-<div class="navbar bg-red">
+<div class="navbar bg-red text-grey">
     <div class="row">
         <div class="col-lg-4 col-sm-12 text-center text-lg-right">
             <img class="portrait" src="{% static 'base/img/matthias_office.png' %}" />
         </div>
         <div class="col-lg-8 col-12">
-            <span class="text-center text-lg-left text-grey"><h3>I'm Matthias</h3></span>
-            <p class="text-center text-lg-left text-grey">Proud husband and father. I am a Product Manager and I like writing software myself</p>
-            <a class="text-grey" href="https://twitter.com/huegli_matthias"><i class="fab fa-twitter"></i> Twitter</a>
-            <a class="text-grey" href="https://www.linkedin.com/in/matthias-h%C3%BCgli-61b3516a/?locale=en_US"><i class="fab fa-linkedin-in"></i> Linkedin</a>
-            <a class="text-grey" href="https://github.com/math87698"><i class="fab fa-github"></i> Github</a>
+            <div class="row">
+                <div class="col-12 text-center text-lg-left">
+                    <h3>I'm Matthias</h3>
+                    <p>Proud husband and father. I am a Product Manager and I like writing lines of software</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center text-lg-left">
+                    <a class="text-grey" href="https://twitter.com/huegli_matthias"><i class="fab fa-twitter"></i> Twitter</a>
+                </div>
+                <div class="col-lg-12 text-center text-lg-left">
+                    <a class="text-grey" href="https://www.linkedin.com/in/matthias-h%C3%BCgli-61b3516a/?locale=en_US"><i class="fab fa-linkedin-in"></i> Linkedin</a>
+                </div>
+                <div class="col-lg-12 text-center text-lg-left">
+                    <a class="text-grey" href="https://github.com/math87698"><i class="fab fa-github"></i> Github</a>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
 
-<h1>I'm Matthias</h1>
-<p>Proud husband and father. I am a Product Manager and I like writing software myself</p>
-
-<h3>Experience</h3>
-{% for position in positions %}
-{{ position.company }}
-{% endfor %}
-<h3>Education</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Skills</h3>
+            <h5>Methodologies</h5>
+            <p>Agile, Scrum, Lean/Startup, Jobs-to-be-Done</p>
+            <h5>Collaboration</h5>
+            <p>Jira, Confluence, HipChat, Slack, Trello, Airtable, Google Suite, Microsoft Suite</p>
+            <h5>Analytics</h5>
+            <p>Behavioral with Google Analytics</p>
+            <h5>Development</h5>
+            <p>SQL, HTML, Django-Pyhton, Continuous Integration and Delivery with Bitbucket, Github and Heroku</p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 
