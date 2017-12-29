@@ -7,6 +7,8 @@
     color: #f9f9f9;
 }
 
+
+/* custom navbar styles */
 .navbar {
     min-height: 10em;
     padding: 2em;
@@ -18,6 +20,17 @@
     margin-bottom: 1em;
 }
 
+/* custom body styles */
+.text-block {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
 h3 {
     margin-top: 0.7em;
+}
+
+.country-flag {
+    max-width: 2em;
 }

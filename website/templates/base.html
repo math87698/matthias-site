@@ -65,17 +65,73 @@
     <div class="row">
         <div class="col-12">
             <h3>Skills</h3>
-            <h5>Methodologies</h5>
-            <p>Agile, Scrum, Lean/Startup, Jobs-to-be-Done</p>
-            <h5>Collaboration</h5>
-            <p>Jira, Confluence, HipChat, Slack, Trello, Airtable, Google Suite, Microsoft Suite</p>
-            <h5>Analytics</h5>
-            <p>Behavioral with Google Analytics</p>
-            <h5>Development</h5>
-            <p>SQL, HTML, Django-Pyhton, Continuous Integration and Delivery with Bitbucket, Github and Heroku</p>
+            <div class="row">
+                <div class="col-lg-2 col-12">
+                    <h5>Methodologies</h5>
+                </div>
+                <div class="col-lg-10 col-12">
+                    <p>Agile, Scrum, Lean/Startup, Jobs-to-be-Done</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-12">
+                    <h5>Collaboration</h5>
+                </div>
+                <div class="col-lg-10 col-12">
+                    <p>Jira, Confluence, HipChat, Slack, Trello, Airtable, Google Suite, Microsoft Suite</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-12">
+                    <h5>Analytics</h5>
+                </div>
+                <div class="col-lg-10 col-12">
+                    <p>Behavioral with Google Analytics</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-12">
+                    <h5>Development</h5>
+                </div>
+                <div class="col-lg-10 col-12">
+                    <p>SQL, HTML, Django-Python, Continuous Integration and Delivery with Bitbucket, Github and Heroku</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Experience</h3>
+            {% for position in positions %}
+            <div class="text-block">
+                <div class="row">
+                    <div class="col-3">
+                        {{ position.company }}
+                    </div>
+                    <div class="col-9">
+                        {{ position.date_from }} - {% if position.date_to == none %}Present{% else %}{{ position.date_to }}{% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h5>{{ position.title }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {% if position.country == Switzerland %}
+                        <img class="country-flag" src="{% static 'base/img/switzerland.svg' %}" />
+                        {% else %}
+                        <img class="country-flag" src="{% static 'base/img/united-states.svg' %}" />
+                        {% endif %}
+                        {{ position.city }}
+                    </div>
+                </div>
+            </div>
+            <hr />
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}
 
