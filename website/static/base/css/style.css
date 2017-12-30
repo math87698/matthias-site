@@ -7,10 +7,10 @@
     color: #f9f9f9;
 }
 
-
 /* custom navbar styles */
 .navbar {
-    min-height: 10em;
+    positon: absolute;
+    min-height: 15rem;
     padding: 2em;
 }
 
@@ -20,8 +20,29 @@
     margin-bottom: 1em;
 }
 
+.name-title {
+    font-size: 25px;
+}
+
 /* custom body styles */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 15rem;
+}
+
+.content {
+    padding: 2em 2em 6em; /* 70px = footer height + expected padding */
+    margin-bottom: -4em;  /* brings the footer into the padding gap */
+    min-height: 100%;
+    flex: 1 0 auto;
+}
+
 .text-block {
+    position: relative;
     margin-top: 1em;
     margin-bottom: 1em;
 }
@@ -33,4 +54,18 @@ h3 {
 
 .country-flag {
     max-width: 2em;
+}
+
+/* footer styles */
+.footer {
+    background: #f9f9f9;
+    position: absolute;
+    height: 10rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .index {
+    padding-top: 3rem;
 }

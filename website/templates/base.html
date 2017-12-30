@@ -31,8 +31,6 @@
 
 {% block bootstrap4_content %}
 
-{% block body %}
-
 <div class="navbar bg-red text-grey">
     <div class="row">
         <div class="col-lg-4 col-sm-12 text-center text-lg-right">
@@ -41,7 +39,7 @@
         <div class="col-lg-8 col-12">
             <div class="row">
                 <div class="col-12 text-center text-lg-left">
-                    <h3>I'm Matthias</h3>
+                    <span class="name-title">I'm Matthias</span>
                     <p>Proud husband and father. I am a Product Manager and I like writing lines of software</p>
                 </div>
             </div>
@@ -58,8 +56,9 @@
             </div>
         </div>
     </div>
-
 </div>
+
+{% block body %}
 
 <div class="container">
     <div class="row">
@@ -99,27 +98,28 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="background: #f9f9f9;">
         <div class="col-12">
             <h3>Experience</h3>
             {% for position in positions %}
             <div class="text-block">
-                <div class="row">
-                    <div class="col-3">
-                        {{ position.company }}
-                    </div>
-                    <div class="col-9">
-                        {{ position.date_from }} - {% if position.date_to == none %}Present{% else %}{{ position.date_to }}{% endif %}
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-12">
                         <h5>{{ position.title }}</h5>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-12 col-lg-2">
+                        {{ position.company }}
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        {{ position.date_from|date:'M Y' }} - {% if position.date_to == none %}Present{% else %}{{ position.date_to|date:'M Y' }}{% endif %}
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-12">
-                        {% if position.country == Switzerland %}
+                        {{ position.country }}
+                        {% if position.city == Flamatt %}
                         <img class="country-flag" src="{% static 'base/img/switzerland.svg' %}" />
                         {% else %}
                         <img class="country-flag" src="{% static 'base/img/united-states.svg' %}" />
@@ -128,12 +128,49 @@
                     </div>
                 </div>
             </div>
-            <hr />
             {% endfor %}
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Education</h3>
+            {% for education in educations %}
+            <div class="text-block">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>{{ education.degree }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ education.facility }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        {{ education.date_from|date:'M Y' }} - {% if education.date_to == none %}Present{% else %}{{ education.date_to|date:'M Y' }}{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
+
+<footer class="footer">
+    <div class="container index">
+        <div class="row">
+            <div class="col-12 col-lg-8 text-center text-lg-left">
+                <a href="{% url 'imprint' %}">Imprint</a>
+            </div>
+            <div class="col-12 col-lg-4 text-center text-lg-right">
+                © Copyright 2018
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
