@@ -21,12 +21,14 @@
     <link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
     <!-- Icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-{% endblock %}
 
-{% block bootstrap4_title %}
-    {% block title %}
-        Matthias
+    {% block bootstrap4_title %}
+    <title>
+    Matthias - Product Manager
+    </title>
     {% endblock %}
+
+
 {% endblock %}
 
 {% block bootstrap4_content %}
@@ -63,6 +65,64 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <h3>Experience</h3>
+            {% for position in positions %}
+            <div class="text-block">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>{{ position.title }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-lg-2">
+                        {{ position.company }}
+                    </div>
+                    <div class="col-6 col-lg-10">
+                        {{ position.date_from|date:'M Y' }} - {% if position.date_to == none %}Present{% else %}{{ position.date_to|date:'M Y' }}{% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {% if position.country == 'Switzerland' %}
+                        <img class="country-flag" src="{% static 'base/img/switzerland.svg' %}" />
+                        {% elif position.country == 'United States' %}
+                        <img class="country-flag" src="{% static 'base/img/united-states.svg' %}" />
+                        {% endif %}
+                        {{ position.city }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12">
+            <h3>Education</h3>
+            {% for education in educations %}
+            <div class="text-block">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>{{ education.degree }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ education.facility }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        {{ education.date_from|date:'M Y' }} - {% if education.date_to == none %}Present{% else %}{{ education.date_to|date:'M Y' }}{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-12">
             <h3>Skills</h3>
             <div class="row">
                 <div class="col-lg-2 col-12">
@@ -96,63 +156,6 @@
                     <p>SQL, HTML, Django-Python, Continuous Integration and Delivery with Bitbucket, Github and Heroku</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row" style="background: #f9f9f9;">
-        <div class="col-12">
-            <h3>Experience</h3>
-            {% for position in positions %}
-            <div class="text-block">
-                <div class="row">
-                    <div class="col-12">
-                        <h5>{{ position.title }}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-2">
-                        {{ position.company }}
-                    </div>
-                    <div class="col-12 col-lg-10">
-                        {{ position.date_from|date:'M Y' }} - {% if position.date_to == none %}Present{% else %}{{ position.date_to|date:'M Y' }}{% endif %}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        {{ position.country }}
-                        {% if position.city == Flamatt %}
-                        <img class="country-flag" src="{% static 'base/img/switzerland.svg' %}" />
-                        {% else %}
-                        <img class="country-flag" src="{% static 'base/img/united-states.svg' %}" />
-                        {% endif %}
-                        {{ position.city }}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <h3>Education</h3>
-            {% for education in educations %}
-            <div class="text-block">
-                <div class="row">
-                    <div class="col-12">
-                        <h5>{{ education.degree }}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        {{ education.facility }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-10">
-                        {{ education.date_from|date:'M Y' }} - {% if education.date_to == none %}Present{% else %}{{ education.date_to|date:'M Y' }}{% endif %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
         </div>
     </div>
 </div>
