@@ -12,6 +12,9 @@ class Position(models.Model):
     date_to = models.DateField(blank=True, null=True)
     title = models.CharField(max_length=150)
 
+    class Meta:
+        ordering = ['-date_from']
+
 
 class Education(models.Model):
     facility = models.CharField(max_length=70)
@@ -20,3 +23,6 @@ class Education(models.Model):
     date_from = models.DateField()
     date_to = models.DateField(blank=True, null=True)
     degree = models.CharField(max_length=70)
+
+    class Meta:
+        ordering = ['-date_from']

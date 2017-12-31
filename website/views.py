@@ -15,5 +15,6 @@ def index(request):
     return render(request, 'base.html', context)
 
 
+
 def imprint(request):
     return render(request, 'imprint.html')
